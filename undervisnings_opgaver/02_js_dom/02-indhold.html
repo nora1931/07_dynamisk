@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Struktur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2>Undertitel</h2>
+        <section class="indhold">
+            <article>
+                <img src="billeder/billede.jpg" alt="billede" class="billede1">
+                <h3>Article 1</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum delectus possimus est, dolorum, molestiae eos corporis temporibus, quidem modi culpa expedita! Similique et harum natus labore, ducimus minus fugit laborum iste, voluptatem consequuntur perspiciatis magni iure voluptatum, nam veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et possimus magni laboriosam at hic placeat commodi voluptatem, ducimus delectus nemo!</p>
+            </article>
+
+            <article>
+                <img src="billeder/billede2.png" alt="billede" class="billede2">
+                <h3>Article 2</h3>
+
+                <p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum delectus possimus est, dolorum, molestiae eos corporis temporibus, quidem modi culpa expedita! Similique et harum natus labore, ducimus minus fugit laborum iste, voluptatem consequuntur perspiciatis magni iure voluptatum, nam veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et possimus magni laboriosam at hic placeat commodi voluptatem, ducimus delectus nemo!</p>
+            </article>
+
+        </section>
+
+        <footer>This is the footer</footer>
+
+    </main>
+
+    <script>
+        const overskrift = document.querySelector("h1");
+        overskrift.textContent;
+        console.log(overskrift.textContent);
+
+        const undertitel = document.querySelector("h2");
+        undertitel.textContent;
+        console.log(undertitel.textContent);
+
+        const underoverskrift1 = document.querySelector("article:nth-child(1) h3");
+        underoverskrift1.textContent;
+        console.log(underoverskrift1.textContent);
+        underoverskrift1.textContent = "1. billede";
+        console.log(underoverskrift1.textContent);
+
+
+
+        const underoverskrift2 = document.querySelector("article:nth-child(2) h3");
+        underoverskrift2.textContent;
+        console.log(underoverskrift2.textContent);
+        underoverskrift2.textContent = "2. Billede";
+        console.log(underoverskrift2.textContent);
+
+
+
+        const paragraf1 = document.querySelector("article:nth-child(1) p");
+        paragraf1.textContent;
+        console.log(paragraf1.textContent);
+        paragraf1.textContent = "Her er et billede som fokuserer på farven orange";
+        console.log(paragraf1.textContent);
+
+
+
+        const paragraf2 = document.querySelector("article:nth-child(2) p");
+        paragraf2.textContent;
+        console.log(paragraf2.textContent);
+        paragraf2.textContent = "Her er et billede som fokuserer på farven rød";
+        console.log(paragraf2.textContent);
+
+
+
+        const billede1 = document.querySelector("article:nth-child(1) img");
+        billede1.textContent;
+        console.log(billede1.textContent);
+
+        const billede2 = document.querySelector("article:nth-child(2) img");
+        billede2.textContent;
+        console.log(billede2.textContent);
+
+        const indhold = document.querySelector("section");
+        indhold.textContent;
+        console.log(indhold.textContent);
+
+        const footer = document.querySelector("footer");
+        footer.textContent;
+        console.log(footer.textContent);
+
+    </script>
+
+</body>
+
+</html>
