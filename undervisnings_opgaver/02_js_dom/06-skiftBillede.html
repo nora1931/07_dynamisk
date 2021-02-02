@@ -36,12 +36,30 @@
     </main>
 
     <script>
-        document.addEventListener("DOMContentLoaded", start);
+        const billede1 = document.querySelector("article:nth-child(1) img");
+        console.log(billede1);
+        billede1.src = "billeder/billede3.png";
+        billede1.alt = "Dette billede har jeg skiftet til billede 3, det er blåt";
 
-        function start(){
+        const billede2 = document.querySelector("article:nth-child(2) img");
+        console.log(billede2);
+        billede2.src = "billeder/billede4.png";
+        billede2.alt = "Dette billede har jeg skiftet til billede 4, der står London"
+
+
+          function start() {
             console.log("DomContent er loaded")
 
-            let mainSection = document.querySelector("section");
+            document.querySelector(".billede1").addEventListener("click", skiftBillede);
+        }
+
+        function skiftBillede() {
+            console.log("skiftBillede")
+            billede1.src = "billeder/billede4.png";
+        }
+
+
+        let mainSection = document.querySelector("section");
         //nyt article element
         let newArticle = document.createElement("article");
         //nyt H# element
@@ -57,14 +75,23 @@
 
         //tilføjer tekst i artiklen
         let paragraf = document.createElement("p");
+
         let paragrafText = document.createTextNode("Dette er billede 4");
+
         paragraf.appendChild(paragrafText);
+
         newArticle.appendChild(paragraf);
 
+        //tilføjer billede i artiklen
+        let pic = document.createElement("img");
 
-        }
+        let picPicture = document.createTextNode("billede2.png")
 
+        pic.appendChild(picPicture);
 
+        newArticle.appendChild(pic);
+
+        document.addEventListener("DOMContentLoaded", start);
 
     </script>
 
