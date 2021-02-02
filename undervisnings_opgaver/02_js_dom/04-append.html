@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Struktur</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2>Undertitel</h2>
+        <section class="indhold">
+            <article>
+                <img src="billeder/billede.jpg" alt="billede" class="billede1">
+                <h3>Article 1</h3>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum delectus possimus est, dolorum, molestiae eos corporis temporibus, quidem modi culpa expedita! Similique et harum natus labore, ducimus minus fugit laborum iste, voluptatem consequuntur perspiciatis magni iure voluptatum, nam veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et possimus magni laboriosam at hic placeat commodi voluptatem, ducimus delectus nemo!</p>
+            </article>
+
+            <article>
+                <img src="billeder/billede2.png" alt="billede" class="billede2">
+                <h3>Article 2</h3>
+
+                <p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam laborum delectus possimus est, dolorum, molestiae eos corporis temporibus, quidem modi culpa expedita! Similique et harum natus labore, ducimus minus fugit laborum iste, voluptatem consequuntur perspiciatis magni iure voluptatum, nam veniam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et possimus magni laboriosam at hic placeat commodi voluptatem, ducimus delectus nemo!</p>
+            </article>
+
+        </section>
+
+        <footer>This is the footer</footer>
+
+    </main>
+
+    <script>
+        const billede1 = document.querySelector("article:nth-child(1) img");
+        console.log(billede1);
+        billede1.src = "billeder/billede3.png";
+        billede1.alt = "Dette billede har jeg skiftet til billede 3, det er blåt"
+
+        const billede2 = document.querySelector("article:nth-child(2) img");
+        console.log(billede2);
+        billede2.src = "billeder/billede4.png";
+        billede2.alt = "Dette billede har jeg skiftet til billede 4, der står London"
+
+        let mainSection = document.querySelector("section");
+        //nyt article element
+        let newArticle = document.createElement("article");
+        //nyt H# element
+        let overskrift = document.createElement("h3");
+        //tekst til overskriften
+        let overskriftText = document.createTextNode("Article 3");
+        //indsæt teskt i overskrift
+        overskrift.appendChild(overskriftText);
+        //tilføj overskrift til article
+        newArticle.appendChild(overskrift);
+        //tilføj article til section
+        mainSection.appendChild(newArticle);
+
+        //tilføjer tekst i artiklen
+        let paragraf = document.createElement("p");
+
+        let paragrafText = document.createTextNode("Dette er billede 4");
+
+        paragraf.appendChild(paragrafText);
+
+        newArticle.appendChild(paragraf);
+
+        //tilføjer billede i artiklen
+        let pic = document.createElement("img");
+
+        let picPicture = document.createTextNode("billede2.png")
+
+        pic.appendChild(picPicture);
+
+        newArticle.appendChild(pic);
+
+    </script>
+
+</body>
+
+</html>
