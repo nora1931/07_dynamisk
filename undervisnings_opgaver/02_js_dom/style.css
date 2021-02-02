@@ -7,10 +7,23 @@ img {
     grid-template-columns: 1fr 1fr;
 }
 
+article {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 35px;
+}
+
 h1 {
     text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 35px;
+
 }
 
 footer {
     text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 35px;
 }
