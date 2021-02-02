@@ -1,0 +1,16 @@
+img {
+    width: 100%
+}
+
+.indhold {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+h1 {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+}
