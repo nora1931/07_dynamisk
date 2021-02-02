@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlideShow Øvelse</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <main>
+        <section class="indhold">
+            <h1> Tro på det...</h1>
+            <img src="slideBilleder/img1.png" alt="billede" class="billede1">
+            <button class="knap">Videre</button>
+        </section>
+    </main>
+
+    <script>
+        const billede1 = document.querySelector("img");
+        console.log(billede1);
+        billede1.src = "slideBilleder/img1.png";
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("Siden er loaded");
+            document.querySelector("button").addEventListener("click", skiftBillede);
+        }
+
+        function skiftBillede() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img2.png";
+            document.querySelector("button").addEventListener("click", skiftBillede2);
+        }
+
+        function skiftBillede2() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img3.png";
+           document.querySelector("button").addEventListener("click", skiftBillede3)
+        }
+
+         function skiftBillede3() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img4.png";
+           document.querySelector("button").addEventListener("click", skiftBillede4)
+        }
+
+         function skiftBillede4() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img5.png";
+           document.querySelector("button").addEventListener("click", skiftBillede5)
+        }
+
+         function skiftBillede5() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img6.png";
+           document.querySelector("button").addEventListener("click", skiftBillede6)
+        }
+
+         function skiftBillede6() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img7.png";
+           document.querySelector("button").addEventListener("click", skiftBillede7)
+        }
+
+         function skiftBillede7() {
+            console.log("skift billede");
+            billede1.src = "slideBilleder/img8.png";
+        }
+
+
+    </script>
+</body>
+
+</html>
