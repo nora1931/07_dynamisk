@@ -27,3 +27,7 @@ footer {
     padding: 5px;
     margin: 35px;
 }
+
+.boxshadow {
+    box-shadow: 34px 14px 9px -4px rgba(0,0,0,0.47);
+}
