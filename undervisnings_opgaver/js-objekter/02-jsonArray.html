@@ -33,6 +33,7 @@
         let container = document.querySelector("section");
         let temp = document.querySelector("template");
 
+        //Hent indhold fra minn json fil kaldet "alleBiler.json"
         const fil = "alleBiler.json";
 
         async function hentdata(fil) {
@@ -41,9 +42,10 @@
             vis(json);
         }
 
+        //Min funktion jeg har kaldt da jeg hentede mit Json indhold
         function vis(biler) {
             biler.forEach(biler => {
-                //placer dyr i HTML
+                //placer biler i HTML i Template
                 let klon = temp.cloneNode(true).content;
                 klon.querySelector("h3").textContent = biler.mærke;
                 klon.querySelector("p").textContent += biler.model;
@@ -52,6 +54,7 @@
             })
         }
 
+        //henter dataen fra min Json fil
         hentdata(fil);
 
     </script>
