@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekt øvelser</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <article id="indhold">
+        <p></p>
+        <img src="" alt="">
+
+    </article>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("loaded")
+        }
+
+
+        let object = {
+            "dyr": "gris",
+            "type": "pattedyr",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "svinefarm",
+        }
+
+        console.log(`dyr:${object.dyr} type:${object.type} levested:${object.levested}`)
+
+        const destination = document.querySelector("#indhold");
+        const info = `dyr: ${object.dyr} type: ${object.type} levested: ${object.levested}`;
+        destination.querySelector("p").textContent = info;
+        destination.querySelector("img").src = object.billede;
+
+        let dyr = [{
+                "navn": "gris",
+                "type": "pattedyr",
+                "levested": "svinefarm",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+            },
+            {
+                "navn": "frø",
+                "type": "amfibie",
+                "levested": "fra vandhullet",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+            },
+            {
+                "navn": "ræv",
+                "type": "pattedyr",
+                "levested": "fra skoven",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+            },
+            {
+                "navn": "sild",
+                "type": "fisk",
+                "levested": "fra havet",
+                "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+            },
+            {
+                "navn": "krokodille",
+                "type": "krybdyr",
+                "levested": "fra floden",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+            }
+        ]
+
+        console.log(dyr);
+        document.addEventListener("DOMContentLoaded", start2);
+
+        function start2(){
+            console.log("loaded2")
+
+            const listevisning = document.querySelector("#indhold");
+            dyr.forEach(dyrene =>{
+                listevisning.innerHTML += `<p>${dyrene.navn}, ${dyrene.type} ${dyrene.levested}</p>`
+            })
+        }
+
+    </script>
+</body>
+
+</html>
