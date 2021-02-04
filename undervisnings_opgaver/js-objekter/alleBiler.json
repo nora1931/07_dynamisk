@@ -1,0 +1,19 @@
+[
+    {
+        "mærke": "Volvo",
+        "model": "Amazon",
+        "km": "500000"
+    },
+
+     {
+        "mærke": "VW",
+        "model": "Polo",
+        "km": "405000"
+    },
+
+     {
+        "mærke": "Tesla",
+        "model": "S",
+        "km": "1000"
+    }
+]
