@@ -46,10 +46,10 @@
         billede2.src = "billeder/billede4.png";
         billede2.alt = "Dette billede har jeg skiftet til billede 4, der står London"
 
-                document.addEventListener("DOMContentLoaded", start);
+        document.addEventListener("DOMContentLoaded", start);
 
 
-          function start() {
+        function start() {
             console.log("DomContent er loaded")
 
             document.querySelector(".billede1").addEventListener("click", skiftBillede);
@@ -77,14 +77,11 @@
 
         //tilføjer tekst i artiklen
         let paragraf = document.createElement("p");
-
         let paragrafText = document.createTextNode("Dette er billede 4");
-
         paragraf.appendChild(paragrafText);
-
         newArticle.appendChild(paragraf);
 
-       //link til billede
+          //link til billede
         let img = document.createElement("img");
         //tilføjer billede i artiklen
         img.src = "billeder/billede.jpg"
@@ -92,7 +89,6 @@
         newArticle.appendChild(img);
         //tilføj article til sektion
         mainSection.appendChild(newArticle);
-
 
     </script>
 

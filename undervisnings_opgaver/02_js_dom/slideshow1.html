@@ -19,58 +19,85 @@
     </main>
 
     <script>
-        const billede1 = document.querySelector("img");
-        console.log(billede1);
-        billede1.src = "slideBilleder/img1.png";
+        //opret array med alle billeder
+        let billeder = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
 
-        document.addEventListener("DOMContentLoaded", start);
+        //tilføj variabler til mine HTML elementer
+        const knap = document.querySelector("button");
+        const billede = document.querySelector("img");
+        let number = 0;
 
-        function start() {
-            console.log("Siden er loaded");
-            document.querySelector("button").addEventListener("click", skiftBillede);
-        }
+        //klik på knap for at skifte billede
+        knap.addEventListener("click", skiftBillede);
 
+        //opret funktion til at skifte billede
         function skiftBillede() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img2.png";
-            document.querySelector("button").addEventListener("click", skiftBillede2);
+            billede.src = "slideBilleder/" + billeder[number];
+            if (number <= 6) {
+                number++;
+                billede.src = "slideBilleder/" + billeder[number];
+                knap.textContent = "Videre";
+            } else {
+                knap.textContent = "Forfra";
+                number = 0;
+            }
         }
 
-        function skiftBillede2() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img3.png";
-           document.querySelector("button").addEventListener("click", skiftBillede3)
-        }
 
-         function skiftBillede3() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img4.png";
-           document.querySelector("button").addEventListener("click", skiftBillede4)
-        }
 
-         function skiftBillede4() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img5.png";
-           document.querySelector("button").addEventListener("click", skiftBillede5)
-        }
 
-         function skiftBillede5() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img6.png";
-           document.querySelector("button").addEventListener("click", skiftBillede6)
-        }
 
-         function skiftBillede6() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img7.png";
-           document.querySelector("button").addEventListener("click", skiftBillede7)
-        }
-
-         function skiftBillede7() {
-            console.log("skift billede");
-            billede1.src = "slideBilleder/img8.png";
-        }
-
+        //        const billede1 = document.querySelector("img");
+        //        console.log(billede1);
+        //        billede1.src = "slideBilleder/img1.png";
+        //
+        //        document.addEventListener("DOMContentLoaded", start);
+        //
+        //        function start() {
+        //            console.log("Siden er loaded");
+        //            document.querySelector("button").addEventListener("click", skiftBillede);
+        //        }
+        //
+        //        function skiftBillede() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img2.png";
+        //            document.querySelector("button").addEventListener("click", skiftBillede2);
+        //        }
+        //
+        //        function skiftBillede2() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img3.png";
+        //           document.querySelector("button").addEventListener("click", skiftBillede3)
+        //        }
+        //
+        //         function skiftBillede3() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img4.png";
+        //           document.querySelector("button").addEventListener("click", skiftBillede4)
+        //        }
+        //
+        //         function skiftBillede4() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img5.png";
+        //           document.querySelector("button").addEventListener("click", skiftBillede5)
+        //        }
+        //
+        //         function skiftBillede5() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img6.png";
+        //           document.querySelector("button").addEventListener("click", skiftBillede6)
+        //        }
+        //
+        //         function skiftBillede6() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img7.png";
+        //           document.querySelector("button").addEventListener("click", skiftBillede7)
+        //        }
+        //
+        //         function skiftBillede7() {
+        //            console.log("skift billede");
+        //            billede1.src = "slideBilleder/img8.png";
+        //        }
 
     </script>
 </body>
