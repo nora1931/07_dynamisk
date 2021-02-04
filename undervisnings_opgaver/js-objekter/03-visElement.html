@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objekt øvelser</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <article id="indhold">
+        <h3></h3>
+        <img src="" alt="">
+
+        <p>Type: </p>
+        <p id="p2">Levested: </p>
+
+    </article>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log("loaded")
+        }
+
+
+        let object = {
+            "dyr": "gris",
+            "type": "pattedyr",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png",
+            "levested": "svinefarm",
+        }
+
+        console.log(`dyr:${object.dyr} type:${object.type} levested:${object.levested}`)
+
+        const destination = document.querySelector("#indhold");
+
+        const info = `${object.dyr}`;
+        const info2 = `${object.type}`;
+        const info3 = `${object.levested}`;
+
+        destination.querySelector("h3").textContent = info;
+        destination.querySelector("p").textContent += info2;
+        destination.querySelector("#p2").textContent += info3;
+        destination.querySelector("img").src = object.billede;
+
+    </script>
+</body>
+
+</html>
