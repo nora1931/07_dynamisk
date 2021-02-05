@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="DA">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Galleri</title>
+    <style>
+        img {
+            width: 100%;
+        }
+
+        article {
+            border: solid yellow 2px;
+            margin: 10px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main> </main>
+
+    <template>
+        <article>
+            <img src="" alt="" class="billede">
+            <h2 class="navn"></h2>
+            <p class="titel"></p>
+            <p class="hobby"></p>
+        </article>
+    </template>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", hentData);
+        const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+
+        const medieurl = "https://persongalleri-5d3e.restdb.io/media/";
+
+        const options = {
+            headers: {
+                'x-apikey': "600fe9211346a1524ff12e31"
+            }
+        };
+
+        async function hentData() {
+            const ressult = await fetch(url, options);
+            const json = await ressult.json();
+            vis(json);
+        }
+
+        const template = document.querySelector("template").content;
+        const main = document.querySelector("main");
+
+        function vis(json) {
+            console.log("vis");
+            console.log(json);
+            json.forEach(person => {
+                const klon = template.cloneNode(true);
+                klon.querySelector(".billede").src = medieurl + person.billede[0];
+                klon.querySelector(".navn").textContent = person.fornavn;
+                klon.querySelector(".titel").textContent = person.titel;
+                klon.querySelector(".hobby").textContent = person.hobby;
+                main.appendChild(klon);
+            })
+        }
+
+//        hentData();
+
+    </script>
+</body>
+
+</html>
