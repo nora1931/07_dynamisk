@@ -1,83 +1,170 @@
 <!DOCTYPE html>
-<html lang="DA">
+<html lang="">
+
+ 
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Babushka opgave</title>
-    <style>
-         img {
+    <title></title>
+<style>
+      img {
             width: 100%;
         }
+    
+    h1 {
+        text-align: center;
+        background-color: orange;
+        padding: 80px;
+        font-size: 3rem;
+    }
 
-        article {
-            background-color: #e5e5e5;
-            margin: 30px;
-            padding: 10px;
+        nav {
+            text-align: left;
         }
 
-        main {
+ 
+        button {
+            background-color: white;
+            color: black;
+            border: 2px solid lightgrey;
+        }
+
+        .valgt {
+            background-color: orange;
+            color: white;
+        }
+
+        #liste {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 3em;
+            margin-left: 130px;
+            margin-right: 130px;
         }
-        
-        body {
-            margin-left: 70px;
-            margin-right: 70px;
+
+        .retter {
+            padding: 1em;
+            background-color: #f2f2f2;
         }
-    </style>
+    </style>       
+
 </head>
 
+
+
 <body>
-   <h1>Babushka</h1>
-    <main> </main>
+
+    <h1>Bistro Babushka</h1>
+    
+    <nav>
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="forretter">Forretter</button>
+        <button data-kategori="hovedretter">Hovedretter</button>
+        <button data-kategori="desserter">Desserter</button>
+        <button data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
+
+    <header>
+        <h2>Alle retter</h2>
+    </header>
+
+    <section id="liste"></section>
+
 
     <template>
-        <article>
-            <img src="" alt="" class="billede">
+        <article class="retter">
             <h2 class="navn"></h2>
-            <p class="beskrivelse"></p>
-            <p class="pris"></p>
+            <img src="" alt="" class="billede">
+            <p class="kortbeskrivelse">Kort beskrivelse </p>
+            <p class="pris">Pris: </p>
+            <p class="oprindelsesregion">Oprindelsesregion </p>
+
         </article>
     </template>
-    
-    
-    
+
+
+
     <script>
-        document.addEventListener("DOMContentLoaded", hentData);
-    
-        const url = "https://babushka-dd8a.restdb.io/rest/menu";
-        
+        const header = document.querySelector("header h2");
+        const url = "https://babushka-dd8a.restdb.io/rest/menu"
         const medieurl = "https://babushka-dd8a.restdb.io/media/";
-        
-        const options = {
-            headers: {
-                'x-apikey': "600ec2fb1346a1524ff12de4"
-            }
-        };
-        
-        async function hentData() {
-            const result = await fetch(url, options);
-            const json = await result.json();
-            vis(json);
+        const myHeaders = {
+
+            "x-apikey": "600ec2fb1346a1524ff12de4"
         }
-        
-        const template = document.querySelector("template").content;
-        const main = document.querySelector("main");
-        
-        function vis(json) {
-            console.log("vis");
-            json.forEach(madret => {
-                const klon = template.cloneNode(true);
-                console.log(madret);
-                klon.querySelector(".billede").src = medieurl + madret.billede[0];
-                klon.querySelector(".navn").textContent = madret.navn;
-                klon.querySelector(".beskrivelse").textContent = madret.kortbeskrivelse;
-                klon.querySelector(".pris").textContent = madret.pris;
-                main.appendChild(klon);
+        document.addEventListener("DOMContentLoaded", start)
+        let retter;
+        //Jeg laver en variabel "filter"
+        let filter = "alle";
+
+
+        // første funktion der kaldes efter DOM er loaded
+        function start() {
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerRetter));
+            loadJSON();
+        }
+
+
+
+        //Eventlistner knyttet til knapperne der vælger hvad for et filter der er aktivt
+        function filtrerRetter() {
+            filter = this.dataset.kategori; //Sæt verdien "filter" til værdien af data-troende på den knap der er klikket på
+            document.querySelector(".valgt").classList.remove("valgt"); //Fjern klassen valgt fra den knap
+            this.classList.add("valgt") //marker den knap der er klikket på
+
+
+
+            visRetter(); //kald funktionen visPersoner efter det nye filter er sat
+            header.textContent = this.textContent;
+        }
+
+
+
+        async function loadJSON() {
+            const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
+                headers: myHeaders
+            });
+            retter = await JSONData.json();
+            console.log("Retter", retter);
+            visRetter();
+        }
+
+
+
+        //funktion der viser personer i liste view
+       
+        function visRetter() {
+            const dest = document.querySelector("#liste"); // container til articles med en person
+            const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
+            
+            dest.textContent = ""; //ryd container inden nyt loop tom "" fjerner det hele
+            retter.forEach(ret => {
+                console.log("Kategori", ret.kategori);
+                
+                // loop igennem json (personer)
+                //tjek hvilken tro personen har og sammenlign med aktielt filter eller vis alle, hvis filteret har værdien "alle"
+                
+                if (filter == ret.kategori || filter == "alle") {
+
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".billede").src = medieurl + ret.billede;
+
+                    klon.querySelector(".navn").textContent = ret.navn;
+
+                    klon.querySelector(".kortbeskrivelse").textContent += ret.kortbeskrivelse;
+
+                    klon.querySelector(".pris").textContent += ret.pris;
+
+                    klon.querySelector(".oprindelsesregion").textContent += ret.oprindelsesregion;
+
+                    dest.appendChild(klon);
+                }
+
+
+
             })
         }
-    
     </script>
-</body>
-</html>
+</body></html>
