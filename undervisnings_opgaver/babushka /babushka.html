@@ -77,7 +77,7 @@
             <h2 class="navn"></h2>
             <img src="" alt="" class="billede">
             <p class="kortbeskrivelse">Kort beskrivelse </p>
-            <p class="pris">Pris: </p>
+            <p class="pris"></p>
             <p class="oprindelsesregion">Oprindelsesregion </p>
 
         </article>
@@ -155,7 +155,7 @@
 
                     klon.querySelector(".kortbeskrivelse").textContent += ret.kortbeskrivelse;
 
-                    klon.querySelector(".pris").textContent += ret.pris;
+                    klon.querySelector(".pris").textContent = `Pris: ${ret.pris},-`;
 
                     klon.querySelector(".oprindelsesregion").textContent += ret.oprindelsesregion;
 
