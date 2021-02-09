@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="">
 
- 
+
 
 <head>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
       img {
             width: 100%;
         }
-    
+
     h1 {
         text-align: center;
         background-color: orange;
@@ -23,7 +23,7 @@
             text-align: left;
         }
 
- 
+
         button {
             background-color: white;
             color: black;
@@ -47,7 +47,7 @@
             padding: 1em;
             background-color: #f2f2f2;
         }
-    </style>       
+    </style>
 
 </head>
 
@@ -56,7 +56,7 @@
 <body>
 
     <h1>Bistro Babushka</h1>
-    
+
     <nav>
         <button data-kategori="alle" class="valgt">Alle</button>
         <button data-kategori="forretter">Forretter</button>
@@ -119,7 +119,7 @@
             visRetter(); //kald funktionen visRetter efter det nye filter er sat
             header.textContent = this.textContent;
         }
-        
+
         //henter data fra JSON linket
         async function loadJSON() {
             const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
@@ -136,14 +136,14 @@
         function visRetter() {
             const dest = document.querySelector("#liste"); // container til articles med en person
             const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
-            
+
             dest.textContent = ""; //ryd container inden nyt loop tom "" fjerner det hele
             retter.forEach(ret => {
                 console.log("Kategori", ret.kategori);
-                
+
                 // loop igennem json (kategorier)
                 //tjek hvilken kategori madretten har og sammenlign med aktielt filter eller vis alle, hvis filteret har værdien "alle"
-                
+
                 if (filter == ret.kategori || filter == "alle") {
 
                     const klon = skabelon.cloneNode(true);
@@ -153,16 +153,20 @@
 
                     klon.querySelector(".kortbeskrivelse").textContent += ret.kortbeskrivelse;
 
-                    klon.querySelector(".pris").textContent = `Pris: ${ret.pris},-`;
+                    klon.querySelector(".pris").textContent = ret.pris;
 
                     klon.querySelector(".oprindelsesregion").textContent += ret.oprindelsesregion;
 
+                    klon.querySelector(".retter").addEventListener("click", () => visDetaljer(ret));
+
                     dest.appendChild(klon);
                 }
-
-
-
             })
         }
+
+        function visDetaljer(hvilken) {
+            location.href = `02-detalje.html?id=${hvilken._id}`;
+        }
+
     </script>
 </body></html>
