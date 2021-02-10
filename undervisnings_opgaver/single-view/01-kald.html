@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <head>
@@ -25,6 +26,7 @@
             font-size: 3rem;
             text-transform: uppercase;
             font-family: 'Hammersmith One', sans-serif;
+            color: #e37777;
         }
 
         .secondOverskrift {
@@ -32,6 +34,7 @@
             font-size: 1rem;
             text-decoration: underline;
             margin-bottom: 40px;
+            color: #e37777;
         }
 
         .underOverskrift {
@@ -65,14 +68,45 @@
 
         nav {
             text-align: center;
-        }
 
+        }
 
         button {
             background-color: #e37777;
-            padding: 5px 50px;
             border-style: none;
-            margin: 10px
+            padding: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @media (min-width:640px) {
+            nav {
+                text-align: center;
+            }
+
+
+            button {
+                background-color: #e37777;
+                padding: 5px 15px;
+                border-style: none;
+                margin: 10px;
+            }
+        }
+
+        @media (min-width:890px) {
+            nav {
+                text-align: center;
+            }
+
+
+            button {
+                background-color: #e37777;
+                padding: 5px 45px;
+                border-style: none;
+                margin: 10px;
+            }
         }
 
         .valgt {
@@ -95,16 +129,92 @@
             border-style: solid;
             border-color: rgba(59, 85, 57, 0.04);
         }
+
+        .icon-bar {
+            position: absolute;
+            padding-bottom: 40px;
+            margin-top: -120px;
+        }
+
+        .icon-bar a {
+            text-align: center;
+            color: #e37777;
+            font-size: 18px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        .facebook {
+            background: #fcf7eb;
+            color: white;
+        }
+
+        .instagram {
+            background: #fcf7eb;
+            color: white;
+
+        }
+
+        footer {
+            column-gap: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 40px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        footer h3 {
+            font-family: 'Hammersmith One', sans-serif;
+            font-size: 1rem;
+        }
+
+        .kontakt {
+            border-style: solid;
+            border-color: rgba(59, 85, 57, 0.04);
+            padding: 20px;
+            margin-bottom: 10px;
+            margin-left: 48px;
+            margin-right: 48px;
+        }
+
+        .aabningstider {
+            border-style: solid;
+            border-color: rgba(59, 85, 57, 0.04);
+            padding: 20px;
+            margin-bottom: 10px;
+            margin-left: 48px;
+            margin-right: 48px;
+
+        }
+
+        @media (min-width:700px) {
+            footer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 15px;
+
+            }
+        }
     </style>
 
 </head>
-
-
 
 <body>
 
     <h1>Babushka</h1>
     <h1 class="secondOverskrift">Bistro</h1>
+
+
+    <div class="icon-bar">
+        <a href="https://www.facebook.com/babushkabistro" class="facebook" target="_blank">
+            <i class="fa fa-facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com/babushkabistro/" target="_blank" class="instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
 
     <nav>
         <button data-kategori="alle" class="valgt">Alle</button>
@@ -131,6 +241,26 @@
 
         </article>
     </template>
+
+    <footer>
+
+        <section class="kontakt">
+            <h3>Kontakt:</h3>
+            <ul>Grønnegade 97</ul>
+            <ul>1234 København K.</ul>
+            <ul>Tlf: +45 12 34 56 78.</ul>
+        </section>
+
+        <section class="aabningstider">
+            <h3>Åbningstider:</h3>
+            <ul>Mandag - Fredag: 10.30 til 22.00</ul>
+            <ul>Lørdag: 12.00 til 23.00</ul>
+            <ul>Søndag: Lukket</ul>
+        </section>
+
+
+
+    </footer>
 
 
 
