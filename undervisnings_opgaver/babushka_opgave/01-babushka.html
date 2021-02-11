@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="DA">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #fcf7eb;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            text-transform: uppercase;
+            font-family: 'Hammersmith One', sans-serif;
+            color: #e37777;
+        }
+
+        .secondOverskrift {
+            margin-top: -40px;
+            font-size: 1rem;
+            text-decoration: underline;
+            margin-bottom: 40px;
+            color: #e37777;
+        }
+
+        .underOverskrift {
+            text-align: center;
+            font-family: 'Hammersmith One', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+
+        }
+
+        .navn {
+            font-size: 1rem;
+            font-family: 'Hammersmith One', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .kortbeskrivelse {
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 310;
+            color: black;
+        }
+
+        .pris {
+            font-family: 'Hammersmith One', sans-serif;
+            font-size: 1.7rem;
+            color: #e37777;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        nav {
+            text-align: center;
+
+        }
+
+        button {
+            background-color: #e37777;
+            border-style: none;
+            padding: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+
+        @media (min-width:640px) {
+            nav {
+                text-align: center;
+            }
+
+
+            button {
+                background-color: #e37777;
+                padding: 5px 15px;
+                border-style: none;
+                margin: 10px;
+            }
+        }
+
+        @media (min-width:890px) {
+            nav {
+                text-align: center;
+            }
+
+
+            button {
+                background-color: #e37777;
+                padding: 5px 45px;
+                border-style: none;
+                margin: 10px;
+            }
+        }
+
+        .valgt {
+            background-color: #f7c85e;
+            color: black;
+            border-style: none;
+
+        }
+
+        #liste {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 1.7em;
+            margin-left: 70px;
+            margin-right: 70px;
+        }
+
+        .retter {
+            padding: 5px;
+            border-style: solid;
+            border-color: rgba(59, 85, 57, 0.04);
+        }
+
+        .icon-bar {
+            position: absolute;
+            padding-bottom: 40px;
+            margin-top: -120px;
+        }
+
+        .icon-bar a {
+            text-align: center;
+            color: #e37777;
+            font-size: 18px;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        .facebook {
+            background: #fcf7eb;
+            color: white;
+        }
+
+        .instagram {
+            background: #fcf7eb;
+            color: white;
+
+        }
+
+        footer {
+            column-gap: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 40px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        footer h3 {
+            font-family: 'Hammersmith One', sans-serif;
+            font-size: 1rem;
+        }
+
+        .kontakt {
+            border-style: solid;
+            border-color: rgba(59, 85, 57, 0.04);
+            padding: 20px;
+            margin-bottom: 10px;
+            margin-left: 48px;
+            margin-right: 48px;
+        }
+
+        .aabningstider {
+            border-style: solid;
+            border-color: rgba(59, 85, 57, 0.04);
+            padding: 20px;
+            margin-bottom: 10px;
+            margin-left: 48px;
+            margin-right: 48px;
+
+        }
+
+        @media (min-width:700px) {
+            footer {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 15px;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Babushka</h1>
+    <h1 class="secondOverskrift">Bistro</h1>
+
+
+    <div class="icon-bar">
+        <a href="https://www.facebook.com/babushkabistro" class="facebook" target="_blank">
+            <i class="fa fa-facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com/babushkabistro/" target="_blank" class="instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </div>
+
+    <nav>
+        <button data-kategori="alle" class="valgt">Alle</button>
+        <button data-kategori="forretter">Forretter</button>
+        <button data-kategori="hovedretter">Hovedretter</button>
+        <button data-kategori="desserter">Desserter</button>
+        <button data-kategori="drikkevarer">Drikkevarer</button>
+    </nav>
+
+    <header>
+        <h2 class="underOverskrift">Alle retter</h2>
+    </header>
+
+    <section id="liste"></section>
+
+
+    <template>
+        <article class="retter">
+            <img src="" alt="" class="billede">
+            <h2 class="navn"></h2>
+            <p class="kortbeskrivelse"></p>
+            <p class="pris"></p>
+            <p class="oprindelsesregion"></p>
+
+        </article>
+    </template>
+
+    <footer>
+
+        <section class="kontakt">
+            <h3>Kontakt:</h3>
+            <ul>Grønnegade 97</ul>
+            <ul>1234 København K.</ul>
+            <ul>Tlf: +45 12 34 56 78.</ul>
+        </section>
+
+        <section class="aabningstider">
+            <h3>Åbningstider:</h3>
+            <ul>Mandag - Fredag: 10.30 til 22.00</ul>
+            <ul>Lørdag: 12.00 til 23.00</ul>
+            <ul>Søndag: Lukket</ul>
+        </section>
+
+
+
+    </footer>
+
+
+
+    <script>
+        const header = document.querySelector("header h2");
+        const url = "https://babushka-dd8a.restdb.io/rest/menu"
+        const medieurl = "https://babushka-dd8a.restdb.io/media/";
+        const myHeaders = {
+
+            "x-apikey": "600ec2fb1346a1524ff12de4"
+        }
+        document.addEventListener("DOMContentLoaded", start)
+        let retter;
+        //Jeg laver en variabel "filter"
+        let filter = "alle";
+
+
+        // første funktion der kaldes efter DOM er loaded
+        function start() {
+            const filterKnapper = document.querySelectorAll("nav button");
+            filterKnapper.forEach(knap => knap.addEventListener("click", filtrerRetter));
+            loadJSON();
+        }
+
+
+
+        //Eventlistner knyttet til knapperne der vælger hvad for et filter der er aktivt
+        function filtrerRetter() {
+            filter = this.dataset.kategori; //Sæt verdien "filter" til værdien af data-kategorien på den knap der er klikket på
+            document.querySelector(".valgt").classList.remove("valgt"); //Fjern klassen valgt fra den knap
+            this.classList.add("valgt") //marker den knap der er klikket på
+
+
+
+            visRetter(); //kald funktionen visRetter efter det nye filter er sat
+            header.textContent = this.textContent;
+        }
+
+        //henter data fra JSON linket
+        async function loadJSON() {
+            const JSONData = await fetch("https://babushka-dd8a.restdb.io/rest/menu", {
+                headers: myHeaders
+            });
+            retter = await JSONData.json();
+            console.log("Retter", retter);
+            visRetter();
+        }
+
+
+
+        //funktion der viser kategorier i liste view
+        function visRetter() {
+            const dest = document.querySelector("#liste"); // container til articles med en person
+            const skabelon = document.querySelector("template").content; // select indhold af html skabelon (article)
+
+            dest.textContent = ""; //ryd container inden nyt loop tom "" fjerner det hele
+            retter.forEach(ret => {
+                console.log("Kategori", ret.kategori);
+
+                // loop igennem json (kategorier)
+                //tjek hvilken kategori madretten har og sammenlign med aktielt filter eller vis alle, hvis filteret har værdien "alle"
+
+                if (filter == ret.kategori || filter == "alle") {
+
+                    const klon = skabelon.cloneNode(true);
+                    klon.querySelector(".billede").src = medieurl + ret.billede;
+
+                    klon.querySelector(".navn").textContent = ret.navn;
+
+                    klon.querySelector(".kortbeskrivelse").textContent = ret.kortbeskrivelse;
+
+                    klon.querySelector(".pris").textContent = `${ret.pris},-`;
+
+                    //                    klon.querySelector(".oprindelsesregion").textContent += ret.oprindelsesregion;
+
+                    klon.querySelector(".retter").addEventListener("click", () => visDetaljer(ret));
+
+                    dest.appendChild(klon);
+                }
+            })
+        }
+
+        function visDetaljer(hvilken) {
+            location.href = `02-detalje.html?id=${hvilken._id}`;
+        }
+    </script>
+</body></html>
